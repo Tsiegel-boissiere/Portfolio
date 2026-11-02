@@ -1,0 +1,48 @@
+:root {
+  --menu-height: 24px;
+  --desktop-color: #9999cc;
+  --menu-color: #dedede;
+  --highlight: #333399;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font-family: monospace; }
+
+.os {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: var(--menu-height) 1fr;
+  overflow: hidden;
+}
+
+.bar-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 12px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  background-color: var(--menu-color);
+  height: var(--menu-height);
+}
+
+.button-menu {
+  background: none;
+  border: none;
+  font: inherit;
+  height: 100%;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+.button-menu:hover { background: var(--highlight); color: white; }
+.gap { flex: 1; }
+
+.desktop { background: var(--desktop-color); position: relative; }
+
+.item-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80px;
+  margin: 1rem;
+}
