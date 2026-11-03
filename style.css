@@ -1,5 +1,5 @@
 :root {
-  --menu-height: 24px;
+  --menu-height: 30px;
   --desktop-color: #9999cc;
   --menu-color: #dedede;
   --highlight: #333399;
@@ -8,6 +8,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
 body { font-family: monospace; }
+body, color { color: black; }
 
 .os {
   height: 100dvh;
@@ -37,7 +38,8 @@ body { font-family: monospace; }
 .button-menu:hover { background: var(--highlight); color: white; }
 .gap { flex: 1; }
 
-.desktop { background: var(--desktop-color); position: relative; }
+.desktop { background: var(--desktop-color); position: relative;
+          }
 
 .item-section {
   display: flex;
@@ -45,4 +47,37 @@ body { font-family: monospace; }
   gap: 1rem;
   width: 80px;
   margin: 1rem;
+}
+
+.item {
+  --label-color: black;
+  --label-bg: #ceccccb0;
+  --img-filter: none;
+
+  display : grid;
+  justify-items: center;
+  padding: 0 ;
+  font : inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item-selected {
+  --label-color: white;
+  --label-bg: black;
+  --img-filter: brightness(0.25);
+}
+
+.item-icon {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  filter: var(--img-filter);
+}
+
+.item-label {
+  color: var(--label-color);
+  background: var(--label-bg);
+ padding: 0 0.25rem;
 }
