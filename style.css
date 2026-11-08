@@ -81,3 +81,57 @@ body, color { color: black; }
   background: var(--label-bg);
  padding: 0 0.25rem;
 }
+
+.menu {
+  position: relative;
+  height: 100%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: max-content;           
+  outline: 1px solid black;
+  box-shadow: 2px 2px #222;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+
+  display: none;
+  flex-direction: column;
+  background-color: var(--menu-color);
+}
+
+.menu.open .dropdown-menu { display: flex; }
+.menu.open .button-menu {
+  background: var(--highlight);
+  color: white;
+}
+
+
+.dropdown-section { padding: 0.1rem 0 0.2rem; }
+.dropdown-section + .dropdown-section { border-top: 1px solid #898989; }
+
+.menu-option {
+  padding: 0.1rem 1.5rem 0.1rem 1.8rem; 
+}
+
+
+.menu-option:hover:not(.unavailable) {
+  background: var(--highlight);
+  color: white;
+}
+
+.checked { position: relative; }
+.checked::before {
+  content: "✔";
+  position: absolute;
+  left: 0.5rem;
+}
+
+.unavailable {
+  color: gray;
+  pointer-events: none;
+}
