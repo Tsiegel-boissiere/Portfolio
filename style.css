@@ -8,7 +8,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
 body { font-family: monospace; }
-body, color { color: black; }
+body { color: black; }
 
 .os {
   height: 100dvh;
@@ -25,6 +25,7 @@ body, color { color: black; }
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
   background-color: var(--menu-color);
   height: var(--menu-height);
+  z-index: 1000;
 }
 
 .button-menu {
@@ -34,11 +35,13 @@ body, color { color: black; }
   height: 100%;
   padding: 0 0.5rem;
   cursor: pointer;
+  
 }
 .button-menu:hover { background: var(--highlight); color: white; }
 .gap { flex: 1; }
 
 .desktop { background: var(--desktop-color); position: relative;
+          overflow: hidden;
           }
 
 .item-section {
@@ -135,3 +138,55 @@ body, color { color: black; }
   color: gray;
   pointer-events: none;
 }
+
+.window {
+  display: none;
+  position: absolute;
+  top: var(--top, 60px);
+  left: var(--left, 100px);
+  width: min(500px, 90%);
+  height: min(400px, 80%);
+  background: var(--menu-color);
+  border: 1px solid #222;
+  outline: 1px solid black;
+  box-shadow: 2px 2px #222;
+  z-index: 20;
+}
+
+.window.open {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.window-title { flex: 1; text-align: center; }
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  justify-content: space-between;
+  min-height: var(--menu-height);
+  padding-left: 0.5rem;
+  background: var(--highlight);
+  color: white;
+}
+
+.close-button {
+  border: 0;
+  padding: 0 0.6rem;
+  height: var(--menu-height);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.window.unfocused .titlebar { background: #666; }
+
+.close-button:hover { background: #ff0000; }
+
+.window-content { padding: 1rem; }
+
+
